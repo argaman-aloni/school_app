@@ -1,0 +1,45 @@
+<div class="terminalActions" ng-controller="terminalActionsController as terminalCtrl">
+    <div>
+        <div class="pageTitle">
+            <h1>TEACHER'S LOUNGE</h1>
+        </div>
+        <div layout="row" layout-padding layout-wrap layout-fill
+             layout layout-align="center center" class="frameContainer">
+            <div>
+                <md-button layout layout-align="center center"
+                           class="md-raised terminal-button"
+                ng-click="terminalCtrl.goToPage('/teacher-task-board')">
+                    <span>MANAGE TASKS</span>
+                </md-button>
+                <md-button layout layout-align="center center"
+                           class="md-raised terminal-button">
+                    <span>MESSAGE BOARD</span>
+                </md-button>
+                <md-button layout layout-align="center center"
+                           class="md-raised terminal-button">
+                    <span>VIEW CLASSES</span>
+                </md-button>
+            </div>
+        </div>
+        <div class="fab-teacher-extras-btn" layout="row"
+             llayout-align="right right">
+            <md-fab-speed-dial md-open="false"
+                               md-direction="up"
+                               ng-class="'md-scale'">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-primary"
+                               layout-align="center center">
+                        <i class="material-icons">add</i>
+                    </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions>
+                    <md-button aria-label="Help"
+                               class="md-fab md-raised md-mini">
+                        <i class="material-icons">info_outline</i>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div ng-controller="tasksDisplayController as taskCtrl" ng-init="taskCtrl.init()">
+    <h1 class="pageTitle">TASK BOARD</h1>
+
+    <div>
+    <md-progress-circular ng-show="!taskCtrl.fetchEnded"
+                          md-diameter="96" layout="row" layout-sm="column"
+                          layout-align="center center"></md-progress-circular>
+    </div>
+
+    <div layout="row" layout-sm="column"
+         layout-align="center center"
+         layout-wrap ng-hide="!taskCtrl.fetchEnded">
+        <md-button class="md-raised md-primary"
+                   ng-click="taskCtrl.createNewTask()">ADD NEW
+            TASK</md-button>
+    </div>
+
+    <div ng-show="taskCtrl.tasks.length">
+        <div layout-align="center center" layout-wrap>
+            <md-input-container>
+                <md-icon md-svg-icon="/images/Search.svg"></md-icon>
+                <label>Search task:</label>
+                <input ng-model="taskCtrl.taskToSearch">
+            </md-input-container>
+        </div>
+
+        <md-grid-list layout-padding
+                md-cols="3" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="5"
+                md-row-height-gt-md="1:1" md-row-height="4:3"
+                md-gutter="8px" md-gutter-gt-sm="14px">
+
+            <md-grid-tile
+                    ng-repeat="taskTile in taskCtrl.taskTiles | filter: taskCtrl.taskToSearch "
+                    md-rowspan="{{taskTile.span.row}}"
+                    md-colspan="{{taskTile.span.col}}"
+                    md-colspan-sm="1"
+                    md-colspan-xs="1"
+                    ng-class="taskTile.background"
+                    class="animte fadeIn" layout-padding>
+                <h2>{{taskTile.title}}</h2>
+                <md-grid-tile-footer
+                        ng-click="taskCtrl.openTaskContent($index, $event)">
+                    <h3>CLICK FOR DETAILS</h3>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+</div>

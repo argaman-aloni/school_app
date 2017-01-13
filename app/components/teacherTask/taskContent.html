@@ -1,0 +1,92 @@
+<md-dialog aria-label="task content dialog">
+    <form name="taskForm" ng-cloak style="width: 100%">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h1 ng-show="!newTask">{{task.title}}</h1>
+                <h1 ng-show="newTask">NEW TASK</h1>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="hide()">
+                    <md-icon md-svg-src="/images/Delete.svg"
+                             aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content layout-padding>
+            <div>
+                <md-input-container class="md-block">
+                    <label>Title:</label>
+                    <input ng-model="task.title" type="text" name="title"
+                           ng-disabled="!editPressed && !newTask" required>
+                    <div ng-messages="taskForm.title.$error">
+                        <div ng-message="required">You need to add a title for
+                            the task.
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Description:</label>
+                    <input ng-model="task.description" type="text"
+                           ng-disabled="!editPressed && !newTask">
+                </md-input-container>
+            </div>
+
+            <div layout="row" style="min-width: 500px;">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label layout-padding>Creation date:</label>
+                    <md-datepicker ng-model="task.creationDate"
+                                   disabled></md-datepicker>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label layout-padding>Submission date:</label>
+                    <md-datepicker name="dateField" md-min-date="ctrl.minDate"
+                                   ng-model="task.lastSubmissionDate"
+                                   ng-disabled="!editPressed && !newTask"
+                                   required></md-datepicker>
+
+                    <div ng-messages="taskForm.dateField.$error">
+                        <div ng-message="required">You need to add a
+                            submission date.
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <md-progress-linear ng-show="ctrl.uploadStarted"
+                                md-mode="determinate"
+                                value="{{ctrl.progress}}"></md-progress-linear>
+
+            <ng-dropzone ng-show="editPressed || newTask"
+                         class="dropzone"
+                         options="ctrl.dropzone.options"
+                         callbacks="ctrl.dropzone.callbacks"
+                         methods="ctrl.dropzone.methods"
+                         layout="row"
+                         layout-align="center center" style="min-height: 110px;
+                 min-width: 500px; border-color: #0f0f0f"
+
+            >
+            </ng-dropzone>
+
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-show="!editPressed && !newTask"
+                       ng-click="ctrl.edit()">
+                EDIT
+            </md-button>
+            <md-button ng-show="!editPressed && !newTask"
+                       ng-click="ctrl.delete()"
+                       style="margin-right:20px;">
+                DELETE
+            </md-button>
+            <md-input type="submit" ng-show="editPressed || newTask"
+                      ng-click="ctrl.save()">
+                SAVE
+            </md-input>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

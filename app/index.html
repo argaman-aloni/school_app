@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Terminal</title>
+    <script type="text/javascript" src="/angular/angular.js"></script>
+    <script type="text/javascript" src="/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/angular-messages/angular-messages.min.js"></script>
+    <script type="text/javascript" src="/dropzone/dist/dropzone.js"></script>
+    <script type="text/javascript" src="/ngdropzone/dist/ng-dropzone.js"></script>
+    <script type="text/javascript"
+            src="/app/components/shared/fileUpload.service.js"></script>
+    <script type="text/javascript"
+            src="/app/components/shared/gridTile.service.js"></script>
+    <script type="text/javascript"
+            src="/app/components/app.module.js"></script>
+    <script type="text/javascript"
+            src="/app/components/teacherLounge/teacherLounge.module.js"></script>
+    <script type="text/javascript"
+            src="/app/components/teacherTask/teacherTasks.module.js"></script>
+    <script type="text/javascript"
+            src="/app/components/teacherTask/teacherTasks.controllers.js"></script>
+    <script type="text/javascript"
+            src="/app/components/teacherTask/teacherTasks.services.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/angular-material/layouts/angular-material.layout-attributes.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/angular-material/layouts/angular-material.layouts.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/dropzone/dist/dropzone.css"/>
+    <link rel="stylesheet" type="text/css" href="/animate.css/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+</head>
+<body ng-app="schoolApp">
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>
+            <span><i class="material-icons">school</i> School Terminal</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-button" aria-label="Login">
+            <a>Login</a>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<ui-view ></ui-view>
+
+</body>
+</html>
